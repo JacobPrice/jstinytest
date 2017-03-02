@@ -45,10 +45,12 @@ var TinyTest = {
             var testAction = tests[testName];
             try {
                 testAction.apply(this);
-                console.log('Test:', testName, 'OK');
+                var passLog = '%c Test: ' + testName + ' SUCCESS';
+                console.log(passLog,'color:#79fb3e; font-weight: bold;');
             } catch (e) {
                 failures++;
-                console.error('Test:', testName, 'FAILED', e);
+                var errorLog =  '%c Test: ' + testName + ' FAILED';
+                console.error(errorLog,'color:#ff0000; font-weight: bold;');
                 console.error(e.stack);
             }
         }
